@@ -1,0 +1,9 @@
+# Mac files
+.DS_Store
+
+# Ignore secrets
+*.env
+.secrets
+
+# Ignore vs code
+.vscode

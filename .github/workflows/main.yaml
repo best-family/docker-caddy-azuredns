@@ -62,7 +62,7 @@ jobs:
           tags: |
             # ${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_CONTAINER_NAME }}:${{ steps.prepare.outputs.tag }}
             # ${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_CONTAINER_NAME }}:latest
-            ghcr.io/${{ env.GITHUB_REGISTRY_ORG_NAME }}/${{ env.DOCKER_CONTAINER_NAME }}:${{ steps.prepare.outputs.tag }}
-            ghcr.io/${{ env.GITHUB_REGISTRY_ORG_NAME }}/${{ env.DOCKER_CONTAINER_NAME }}:latest
+            ghcr.io/${{ env.GITHUB_REGISTRY_ORG_NAME }}/${{ env.GITHUB_REGISTRY_ORG_NAME }}:${{ steps.prepare.outputs.tag }}
+            ghcr.io/${{ env.GITHUB_REGISTRY_ORG_NAME }}/${{ env.GITHUB_REGISTRY_ORG_NAME }}:latest
             # quay.io/${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_CONTAINER_NAME }}:${{ steps.prepare.outputs.tag }}
             # quay.io/${{ env.DOCKER_USERNAME }}/${{ env.DOCKER_CONTAINER_NAME }}:latest

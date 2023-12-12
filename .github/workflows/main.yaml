@@ -8,7 +8,7 @@ on:
 
 env:
   DOCKER_USERNAME: ausfestivus
-  DOCKER_CONTAINER_NAME: caddy-azuredns
+  DOCKER_CONTAINER_NAME: docker-caddy-azuredns
   DOCKER_TARGET_PLATFORM: linux/amd64, linux/arm64, linux/arm/v8, linux/arm/v7
   GITHUB_REGISTRY_ORG_NAME: best-family
 
@@ -60,5 +60,5 @@ jobs:
           platforms: ${{ env.DOCKER_TARGET_PLATFORM }}
           push: true
           tags: |
-            ghcr.io/${{ env.GITHUB_REGISTRY_ORG_NAME }}/${{ env.GITHUB_REGISTRY_ORG_NAME }}:${{ steps.prepare.outputs.tag }}
-            ghcr.io/${{ env.GITHUB_REGISTRY_ORG_NAME }}/${{ env.GITHUB_REGISTRY_ORG_NAME }}:latest
+            ghcr.io/${{ env.GITHUB_REGISTRY_ORG_NAME }}/${{ env.DOCKER_CONTAINER_NAME }}:${{ steps.prepare.outputs.tag }}
+            ghcr.io/${{ env.GITHUB_REGISTRY_ORG_NAME }}/${{ env.DOCKER_CONTAINER_NAME }}:latest

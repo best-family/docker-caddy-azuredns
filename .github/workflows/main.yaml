@@ -15,23 +15,18 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-        if: ${{ !github.event.act }} # skip during local actions testing
+        uses: actions/checkout@v4
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
-
-      - name: Prepare
-        if: success()
-        id: prepare
-        run: |
-          echo "name=docker_platform::${DOCKER_TARGET_PLATFORM}" >> $GITHUB_OUTPUT
-          echo "name=tag::$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
 
       # - name: Login to Docker Hub
       #   uses: docker/login-action@v2
@@ -53,12 +48,18 @@ jobs:
       #     username: ${{ env.DOCKER_USERNAME }}+pushbot
       #     password: ${{ secrets.QUAY_TOKEN }}
 
-      - name: Build container and Push
-        uses: docker/build-push-action@v3
+      - name: Extract metadata (tags, labels) for Docker
+        if: success()
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: |
+            ghcr.io/${{ github.repository }}
+
+      - name: Build and push Docker images
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
         with:
           context: .
-          platforms: ${{ env.DOCKER_TARGET_PLATFORM }}
           push: true
-          tags: |
-            ghcr.io/${{ env.GITHUB_REGISTRY_ORG_NAME }}/${{ env.DOCKER_CONTAINER_NAME }}:${{ steps.prepare.outputs.tag }}
-            ghcr.io/${{ env.GITHUB_REGISTRY_ORG_NAME }}/${{ env.DOCKER_CONTAINER_NAME }}:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}

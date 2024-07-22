@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.5.0
+  rev: v4.6.0
   hooks:
     - id: check-yaml
     - id: end-of-file-fixer
@@ -26,7 +26,7 @@ repos:
       args: [--msg-filename]
       stages: [commit-msg]
 - repo: https://github.com/zricethezav/gitleaks
-  rev: v8.18.0
+  rev: v8.18.4
   hooks:
     - id: gitleaks
 - repo: https://github.com/Lucas-C/pre-commit-hooks-nodejs
@@ -41,7 +41,7 @@ repos:
   - id: dockerfilelint
     stages: [commit]
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.27.3
+  rev: 0.29.0
   hooks:
     - id: check-github-workflows
       args: ["--verbose"]

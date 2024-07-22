@@ -7,11 +7,21 @@ A Caddy Server Docker container with the [Azure DNS Provider](https://caddyserve
 
 Based heavily on the code at [https://github.com/SlothCroissant/caddy-cloudflaredns](https://github.com/SlothCroissant/caddy-cloudflaredns)
 
+## Table of contents
+
+<!-- toc -->
+
+- [Running the container](#running-the-container)
+- [docker compose](#docker-compose)
+- [dot env](#dot-env)
+
+<!-- tocstop -->
+
+## Running the container
+
 Builds are available at the following Docker repositories:
 
-* GitHub Container Registry: [https://ghcr.io/best-family/docker-caddy-azuredns](https://ghcr.io/best-family/docker-caddy-azuredns)
-
-A few things to note:
+- GitHub Container Registry: [https://ghcr.io/best-family/docker-caddy-azuredns](https://ghcr.io/best-family/docker-caddy-azuredns)
 
 1. Ensure you're signed into the GitHub container registery.
 

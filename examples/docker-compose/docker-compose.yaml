@@ -1,0 +1,21 @@
+services:
+
+  caddy:
+    container_name: caddy
+    image: ghcr.io/best-family/docker-caddy-azuredns:v0.0.1
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy_config:/config
+      - ./caddy_data:/data
+      - ./site:/srv
+
+networks:
+  default:
+    name: $DOCKER_MY_NETWORK
+    external: true

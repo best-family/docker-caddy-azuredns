@@ -1,0 +1,11 @@
+# GENERAL
+TZ=<Your Timezone name here eg Australia/Sydney>
+DOCKER_MY_NETWORK=<The name of the docker network to attach the container to>
+MY_DOMAIN=<YOUR DOMAIN HERE>
+
+# Azure Client
+AZURE_TENANT_ID=<Your Entra ID Tenant ID>
+AZURE_CLIENT_ID=<Your Service Principal Client ID>
+AZURE_CLIENT_SECRET="<The secret on the about Client ID. Be sure to include the surrounding quotes>"
+AZURE_SUBSCRIPTION_ID=<The Azure Subscription ID that contains the Azure DNS zone>
+AZURE_RESOURCE_GROUP_NAME=<The Resource Group that contains the Azure DNS zone>

@@ -1,6 +1,6 @@
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v4.6.0
+  rev: v5.0.0
   hooks:
     - id: check-yaml
     - id: end-of-file-fixer
@@ -26,7 +26,7 @@ repos:
       args: [--msg-filename]
       stages: [commit-msg]
 - repo: https://github.com/zricethezav/gitleaks
-  rev: v8.18.4
+  rev: v8.24.3
   hooks:
     - id: gitleaks
 - repo: https://github.com/Lucas-C/pre-commit-hooks-nodejs
@@ -39,9 +39,15 @@ repos:
   rev: v0.1.0
   hooks:
   - id: dockerfilelint
-    stages: [commit]
+    stages: [pre-commit]
 - repo: https://github.com/python-jsonschema/check-jsonschema
-  rev: 0.29.0
+  rev: 0.33.0
   hooks:
     - id: check-github-workflows
       args: ["--verbose"]
+- repo: https://github.com/Lucas-C/pre-commit-hooks-nodejs
+  rev: v1.1.2
+  hooks:
+  -   id: markdown-toc
+      # optional custom config:
+      args: [--indent, "    ", -i]

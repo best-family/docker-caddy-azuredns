@@ -7,11 +7,21 @@ A Caddy Server Docker container with the [Azure DNS Provider](https://caddyserve
 
 Based heavily on the code at [https://github.com/SlothCroissant/caddy-cloudflaredns](https://github.com/SlothCroissant/caddy-cloudflaredns)
 
+## Table of contents
+
+<!-- toc -->
+
+- [Running the container](#running-the-container)
+- [docker compose](#docker-compose)
+- [dot env](#dot-env)
+
+<!-- tocstop -->
+
+## Running the container
+
 Builds are available at the following Docker repositories:
 
-* GitHub Container Registry: [https://ghcr.io/best-family/docker-caddy-azuredns](https://ghcr.io/best-family/docker-caddy-azuredns)
-
-A few things to note:
+- GitHub Container Registry: [https://ghcr.io/best-family/docker-caddy-azuredns](https://ghcr.io/best-family/docker-caddy-azuredns)
 
 1. Ensure you're signed into the GitHub container registery.
 
@@ -21,7 +31,7 @@ A few things to note:
 
 Refer to the GitHub [documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry) if required.
 
-2. You should add Azure client related values as environment variables to your docker run command. Example:
+1. You should add Azure client related values as environment variables to your docker run command. Example:
 
     ```shell
     docker run -it --name caddy \
@@ -39,9 +49,9 @@ Refer to the GitHub [documentation](https://docs.github.com/en/packages/working-
         best-family/docker-caddy-azuredns:latest
     ```
 
-3. You should add the following to your Caddyfile as the [tls directive](https://caddyserver.com/docs/caddyfile/directives/tls#tls).
+1. You should add the following to your Caddyfile as the [tls directive](https://caddyserver.com/docs/caddyfile/directives/tls#tls).
 
-   ```
+   ```json
     tls {
       dns azure {
         tenant_id {$AZURE_TENANT_ID}

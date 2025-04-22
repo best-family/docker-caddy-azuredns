@@ -38,13 +38,13 @@ jobs:
       - name: Extract metadata (tags, labels) for Docker
         if: success()
         id: meta
-        uses: docker/metadata-action@v5.5.1
+        uses: docker/metadata-action@v5.7.0
         with:
           images: |
             ghcr.io/${{ github.repository }}
 
       - name: Build and push Docker images
-        uses: docker/build-push-action@v6.3.0
+        uses: docker/build-push-action@v6.15.0
         with:
           context: .
           push: true
